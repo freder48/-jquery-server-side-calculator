@@ -1,31 +1,38 @@
+let expression = {
+           number1 : null,
+           number2: null,
+           operator: null
+}
+
 console.log('Hello');
 
 $(document).ready(readyNow);
 
 function readyNow(){
     console.log('Hello from JQ');
-    
+    //plus button it clicked, runs function, stores operator clicked in expression
+    $('#plusBtn').on('click', function() {expression.operator = '/plus'});
+    $('#subBtn').on('click', function() {expression.operator = '/subtract'});
+    $('#multiplyBtn').on('click', function() {expression.operator = '/multiply'});
+    $('#divideBtn').on('click', function() {expression.operator = '/divide'});
     $('#equalsBtn').on('click', getCalc);
-    
+    $('#clearBtn').on('click', clearInput);
 }
 
+//runs on equals button click, gets info 
 function getCalc(){
     console.log('clicked equal');
-    let value1 = $('#num1').val();
-    let value2 = $('#num2').val();
+    expression.number1 = $('#num1').val();
+    expression.number2 = $('#num2').val();
 
    $.ajax({
         method: 'POST',
         url: '/calc',
-        data: {
-           number1 : value1,
-           number2: value2
-        }
-    }).then(function(response) { //once you get a response run getCats
+        data: expression
+    }).then(function(response) { //once you get a response run doMath
         //The is run if you get a good response from the server
         console.log('Added successfully');
-       //Get all the cats again, so we can see 
-        doMath();
+       //Get all the numbers again, so we can see 
          //empty
        $('#num1').val('');
        $('#num2').val('');
@@ -36,24 +43,25 @@ function getCalc(){
         console.log('Error', error); //I see 
         alert('Something bad happened. Try again later.'); //user sees
     })
-
-   function doMath(){
-        //Making a GET request to our server 
-        //This returns back a 'Promise' (object within JS)
-        $.ajax({
-           method: 'GET', 
-           url: '/calc' 
-        }).then( function(response) { //once you get a response THEN you'll run this function
-            console.log('Got response', response);
-            // renderCalculationHistory(response); COME BACK TO THIS
-        }).catch(function(error){
-            //console.log & alert the user
-            console.log('Error', error); //I see 
-            alert('Something bad happened. Try again later.'); //user sees
-        })
-    
-    }
 }
+
+//    function getMath(){
+//         //Making a GET request to our server 
+//         //This returns back a 'Promise' (object within JS)
+//         $.ajax({
+//            method: 'GET', 
+//            url: '/calc' 
+//         }).then( function(response) { //once you get a response THEN you'll run this function
+//             console.log('Got response', response);
+//             // renderCalculationHistory(response); COME BACK TO THIS
+//         }).catch(function(error){
+//             //console.log & alert the user
+//             console.log('Error', error); //I see 
+//             alert('Something bad happened. Try again later.'); //user sees
+//         })
+    
+//     }
+
 
 // //start renderCalculationHistory
 // function renderCalculationHistory(calculatorArray){
@@ -66,3 +74,8 @@ function getCalc(){
 //     }//end for loop
   
 // }//end renderCats
+
+function clearInput(){
+    $('#num1').val('');
+    $('#num2').val('');
+}
