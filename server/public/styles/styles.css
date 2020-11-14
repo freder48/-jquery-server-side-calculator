@@ -1,3 +1,49 @@
 body {
-    background-color: antiquewhite;
+    margin: 0;
+    background-color: aquamarine;
 }
+
+.title {
+    text-align: center;
+    margin: 1em;
+}
+
+.calcShape{
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 2em;
+    border: 2px solid black;
+    border-radius:10%;
+}
+
+input {
+    position: relative;
+    display: block;
+    width: 25%;
+    margin: 10px auto;
+    font-size: 10px;
+    padding: 10px;
+    box-shadow: 4px 0px 12px grey;
+  }
+
+  button {
+    background: lightGray;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #003300;
+    color: white;
+  }
+
+  li {
+      list-style-type: none;
+      text-align: left;
+
+  }

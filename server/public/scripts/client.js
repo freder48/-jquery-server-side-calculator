@@ -67,24 +67,24 @@ function getCalc(){
 //start renderCalculationHistory
 function renderCalculationHistory(historyAllCalculations){
     console.log('CalculatorArray is', historyAllCalculations);
-    //empty (not important now, but will be later)
+    //empty 
     $('#calculationHistory').empty();
-    //put the cats into the ul
-    for (let item of historyAllCalculations){
-        if (objects.operator == '/plus'){
-            item.operator = '+';
-        } else if (objects.operator == '/subtract'){
-            item.operator = '-';
-        } else if (objects.operator == '/multiply'){
-            item.operator = '*';
-        } else if (objects.operator == '/divide'){
-            item.operator = '/';
 
+    for (let item of historyAllCalculations){
+        if (item.operator == '/plus'){
+            item.operator = '+';
+        } else if (item.operator == '/subtract'){
+            item.operator = '-';
+        } else if (item.operator == '/multiply'){
+            item.operator = '*';
+        } else if (item.operator == '/divide'){
+            item.operator = '/';
+        }
         $('#calculationHistory').append(`<li>${item.number1} ${item.operator} ${item.number2} = ${item.result}</li>`);
         $("#total").empty();
         $("#total").append(`${item.result}`)
     }//end for loop
-}
+
 }//end renderCalculationHistory
 
 function clearInput(){
