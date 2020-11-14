@@ -6,6 +6,7 @@ app.use( express.static('server/public') );
 app.use( bodyParser.urlencoded( {extended:true} ) );
 
 const calculatorArray = [];
+let result = 0;
 
 
 //once you get calculation result you can send the result back to client side
@@ -13,26 +14,32 @@ app.get('/calc', (req, res) => {
     let historyAllCalculations = [];
     console.log('Sending calculator data');
     for (objects of calculatorArray){
-        let result = 0;
+        
         if (objects.operator == '/plus'){
             result = Number(objects.number1) + Number(objects.number2);
+            objects.operator = '+';
         } else if (objects.operator == '/subtract'){
             result = Number(objects.number1) - Number(objects.number2);
+            objects.operator = '-';
         } else if (objects.operator == '/multiply'){
             result = Number(objects.number1) * Number(objects.number2);
+            objects.operator = '*';
         } else if (objects.operator == '/divide'){
             result = Number(objects.number1) / Number(objects.number2);
+            objects.operator = '/';
         }
-        historyAllCalculations.push({
+        //want all this info so I can use it in my renderCalculationHistory
+        historyAllCalculations.unshift({
             number1: objects.number1,
             number2: objects.number2,
             operator: objects.operator,
             result: result
         })
     } 
-    res.send(historyAllCalculations);
-})
+    //this sends info back to my getMath function
+    res.send(historyAllCalculations)
 
+})
 
 
 app.post('/calc', (req, res) => {

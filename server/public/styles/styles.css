@@ -1,21 +1,32 @@
 body {
     margin: 0;
-    background-color: aquamarine;
+    background-image: url('mathPic.jpg');
+    background-size: cover;
 }
 
 .title {
     text-align: center;
-    margin: 1em;
+    /* margin: 1em; */
+    width: 100%;
+    -webkit-text-stroke: 1px  white;
+    color: #80002a;
+    font-size: 55px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 4px 0px 12px grey;
+    padding: 10px;
 }
 
 .calcShape{
     width: 40%;
+    height: 50%;
     margin: auto;
-    background-color: white;
+    background-color: #F5F5F5;
     text-align: center;
     padding: 2em;
     border: 2px solid black;
-    border-radius:10%;
+    border-radius:5%;
+    box-shadow: 4px 0px 12px grey;
+    margin-top: 75px;
 }
 
 input {
@@ -25,6 +36,7 @@ input {
     margin: 10px auto;
     font-size: 10px;
     padding: 10px;
+    border-radius: 5%;
     box-shadow: 4px 0px 12px grey;
   }
 
