@@ -8,28 +8,22 @@ app.use( bodyParser.urlencoded( {extended:true} ) );
 const calculatorArray = [];
 let result = 0;
 
-
 //once you get calculation result you can send the result back to client side
 app.get('/calc', (req, res) => {
     let historyAllCalculations = [];
     console.log('Sending calculator data');
     for (objects of calculatorArray){
-        
-        if (objects.operator == '/plus'){
+        if (objects.operator == '+'){
             result = Number(objects.number1) + Number(objects.number2);
-            objects.operator = '+';
-        } else if (objects.operator == '/subtract'){
+        } else if (objects.operator == '-'){
             result = Number(objects.number1) - Number(objects.number2);
-            objects.operator = '-';
-        } else if (objects.operator == '/multiply'){
+        } else if (objects.operator == '*'){
             result = Number(objects.number1) * Number(objects.number2);
-            objects.operator = '*';
-        } else if (objects.operator == '/divide'){
+        } else if (objects.operator == '/'){
             result = Number(objects.number1) / Number(objects.number2);
-            objects.operator = '/';
         }
         //want all this info so I can use it in my renderCalculationHistory
-        historyAllCalculations.unshift({
+        historyAllCalculations.push({
             number1: objects.number1,
             number2: objects.number2,
             operator: objects.operator,

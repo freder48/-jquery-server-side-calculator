@@ -11,10 +11,10 @@ $(document).ready(readyNow);
 function readyNow(){
     console.log('Hello from JQ');
     //plus button it clicked, runs function, stores operator clicked in expression
-    $('#plusBtn').on('click', function() {expression.operator = '/plus'});
-    $('#subBtn').on('click', function() {expression.operator = '/subtract'});
-    $('#multiplyBtn').on('click', function() {expression.operator = '/multiply'});
-    $('#divideBtn').on('click', function() {expression.operator = '/divide'});
+    $('#plusBtn').on('click', function() {expression.operator = '+'});
+    $('#subBtn').on('click', function() {expression.operator = '-'});
+    $('#multiplyBtn').on('click', function() {expression.operator = '*'});
+    $('#divideBtn').on('click', function() {expression.operator = '/'});
     $('#equalsBtn').on('click', getCalc);
     $('#clearBtn').on('click', clearInput);
     getMath();
@@ -24,7 +24,7 @@ function readyNow(){
 //runs on equals button click, sending expression to server side
 function getCalc(){
     console.log('clicked equal');
-    //get inpu
+    //get inputs
     expression.number1 = $('#num1').val();
     expression.number2 = $('#num2').val();
 
@@ -69,7 +69,6 @@ function getCalc(){
 
 //start renderCalculationHistory
 function renderCalculationHistory(historyAllCalculations){
-    
     console.log('CalculatorArray is', historyAllCalculations);
     //empty so it doesn't print double on ul
     $('#calculationHistory').empty();
@@ -80,18 +79,18 @@ function renderCalculationHistory(historyAllCalculations){
 }//end renderCalculationHistory
 
 
-function renderBigNum(historyAllCalculations) {
-    for (let item of historyAllCalculations) {
+function renderBigNum(response) {
+  for (let item of response) {
         $('#total').empty(); // want it to
         $('#total').append(`${item.result}`);
     } // end for loop
     
 }
 
-
 //start clearInput
 //clears inputs when c is clicked
 function clearInput(){
+    $('#total').empty();
     $('#num1').val('');
     $('#num2').val('');
 }//end clearInput
