@@ -1,8 +1,8 @@
 
-![MIT LICENSE](https://img.shields.io/github/license/freder48/https://github.com/freder48/jquery-server-side-calculator.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/freder48/https://github.com/freder48/jquery-server-side-calculator.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/freder48/https://github.com/freder48/jquery-server-side-calculator.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/freder48/https://github.com/freder48/jquery-server-side-calculator.svg?style=social)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![REPO SIZE](https://img.shields.io/github/repo-size/freder48/jquery-server-side-calculator.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/freder48/jquery-server-side-calculator.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/freder48/jquery-server-side-calculator.svg?style=social)
 
 # jQuery-Server-Side-Calculator
 
@@ -12,6 +12,9 @@ Duration: 9 hours
 
 This website does basic calculations based upon user inputs. Calculations themselves are stored on the server side. 
 
+## Screen Shot
+
+![image](./server/images/screenshot.png)
 
 ## Installation
 
@@ -27,6 +30,10 @@ Download and install node and express. Run npm install then start the server wit
 ## Built With
 
 JavaScript, jQuery, HTML, CSS, Express
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. 
