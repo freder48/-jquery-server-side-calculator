@@ -12,6 +12,8 @@ Duration: 9 hours
 
 This website does basic calculations based upon user inputs. Calculations themselves are stored on the server side. 
 
+See the deployed app at [Heroku](https://guarded-headland-54502.herokuapp.com/)
+
 ## Screen Shot
 
 ![image](./server/images/screenshot.png)
